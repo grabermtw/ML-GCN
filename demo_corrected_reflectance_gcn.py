@@ -1,8 +1,8 @@
 import argparse
-from engine import *
-from models import *
+from corrected_reflectance_engine import *
+from corrected_reflectance_models import *
 from corrected_reflectance import *
-from util import *
+from corrected_reflectance_util import *
 
 """
 python3 demo_corrected_reflectance_gcn.py
@@ -49,9 +49,9 @@ def main_corrected_reflectance():
 
     train_dataset = CorrectedReflectanceDataset(training_data)
     val_dataset = CorrectedReflectanceDataset(validation_data)
-    num_classes = 80
+    num_classes = 2
 
-    model = gcn_resnet101(num_classes=num_classes, t=0.4, adj_file='data/coco/coco_adj.pkl')
+    model = gcn_resnet101(num_weather_classes=num_classes, num_terrain_classes=num_classes, in_channel=128, t=0.4, adj_file='corrected_reflectance.pkl')#'data/coco/coco_adj.pkl')
 
     # define loss function (criterion)
     criterion = nn.MultiLabelSoftMarginLoss()

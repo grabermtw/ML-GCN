@@ -1,6 +1,6 @@
 import torchvision.models as models
 from torch.nn import Parameter
-from util import *
+from corrected_reflectance_util import *
 import torch
 import torch.nn as nn
 
@@ -41,7 +41,7 @@ class GraphConvolution(nn.Module):
 
 
 class GCNResnet(nn.Module):
-    def __init__(self, model, num_classes, in_channel=300, t=0, adj_file=None):
+    def __init__(self, model, num_weather_classes, num_terrain_classes, in_channel=300, t=0, adj_file=None):
         super(GCNResnet, self).__init__()
         self.features = nn.Sequential(
             model.conv1,
@@ -53,15 +53,22 @@ class GCNResnet(nn.Module):
             model.layer3,
             model.layer4,
         )
-        self.num_classes = num_classes
-        self.pooling = nn.MaxPool2d(14, 14)
+        
+        self.num_weather_classes = num_weather_classes
+        self.num_terrain_classes = num_terrain_classes
+        self.pooling = nn.MaxPool2d(4, 4)
 
-        self.gc1 = GraphConvolution(in_channel, 1024)
-        self.gc2 = GraphConvolution(1024, 2048)
-        self.relu = nn.LeakyReLU(0.2)
+        self.weather_gc1 = GraphConvolution(in_channel, 1024)
+        self.weather_gc2 = GraphConvolution(1024, 2048)
+        self.weather_relu = nn.LeakyReLU(0.2)
 
-        _adj = gen_A(num_classes, t, adj_file)
+        _adj = gen_A(num_weather_classes + num_terrain_classes, t, adj_file)
         self.A = Parameter(torch.from_numpy(_adj).float())
+
+        self.terrain_gc1 = GraphConvolution(in_channel, 1024)
+        self.terrain_gc2 = GraphConvolution(1024, 2048)
+        self.terrain_relu = nn.LeakyReLU(0.2)
+
         # image normalization
         self.image_normalization_mean = [0.485, 0.456, 0.406]
         self.image_normalization_std = [0.229, 0.224, 0.225]
@@ -71,26 +78,41 @@ class GCNResnet(nn.Module):
         feature = self.pooling(feature)
         feature = feature.view(feature.size(0), -1)
 
-
         inp = inp[0]
         adj = gen_adj(self.A).detach()
-        x = self.gc1(inp, adj)
-        x = self.relu(x)
-        x = self.gc2(x, adj)
+        weather_x = self.weather_gc1(inp, adj)
+        weather_x = self.weather_relu(weather_x)
+        weather_x = self.weather_gc2(weather_x, adj)
 
-        x = x.transpose(0, 1)
-        x = torch.matmul(feature, x)
-        return x
+        #weather_x = weather_x.transpose(0, 1)
+        weather_x = weather_x.view(2048,-1)
+        weather_x = torch.matmul(feature, weather_x)
+        weather_x = weather_x.view(-1,16)
+
+
+        terrain_x = self.terrain_gc1(inp, adj)
+        terrain_x = self.terrain_relu(terrain_x)
+        terrain_x = self.terrain_gc2(terrain_x, adj)
+
+        #terrain_x = terrain_x.transpose(0, 1)
+        terrain_x = terrain_x.view(2048,-1)
+        terrain_x = torch.matmul(feature, terrain_x)
+        terrain_x = terrain_x.view(-1,16)
+
+        return weather_x, terrain_x
 
     def get_config_optim(self, lr, lrp):
-        return [
+        params = [
                 {'params': self.features.parameters(), 'lr': lr * lrp},
-                {'params': self.gc1.parameters(), 'lr': lr},
-                {'params': self.gc2.parameters(), 'lr': lr},
+                {'params': self.weather_gc1.parameters(), 'lr': lr},
+                {'params': self.weather_gc2.parameters(), 'lr': lr},
+                {'params': self.terrain_gc1.parameters(), 'lr': lr},
+                {'params': self.terrain_gc2.parameters(), 'lr': lr},
                 ]
+        return params
 
 
 
-def gcn_resnet101(num_classes, t, pretrained=False, adj_file=None, in_channel=300):
+def gcn_resnet101(num_weather_classes, num_terrain_classes, t, pretrained=False, adj_file=None, in_channel=300):
     model = models.resnet101(pretrained=pretrained)
-    return GCNResnet(model, num_classes, t=t, adj_file=adj_file, in_channel=in_channel)
+    return GCNResnet(model, num_weather_classes, num_terrain_classes, t=t, adj_file=adj_file, in_channel=in_channel)
