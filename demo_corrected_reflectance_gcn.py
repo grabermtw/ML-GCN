@@ -13,7 +13,7 @@ parser.add_argument('--image-size', '-i', default=128, type=int,
                     metavar='N', help='image size (default: 128)')
 parser.add_argument('-j', '--workers', default=1, type=int, metavar='N',
                     help='number of data loading workers (default: 1)')
-parser.add_argument('--epochs', default=50, type=int, metavar='N',
+parser.add_argument('--epochs', default=25, type=int, metavar='N',
                     help='number of total epochs to run')
 parser.add_argument('--epoch_step', default=[30], type=int, nargs='+',
                     help='number of epochs to change learning rate')
@@ -42,7 +42,7 @@ parser.add_argument('-e', '--evaluate', dest='evaluate', action='store_true',
 def main_corrected_reflectance():
     global args, best_prec1, use_gpu
     args = parser.parse_args()
-
+    start_time = time.time()
     use_gpu = torch.cuda.is_available()
 
     training_data, validation_data = load_data("labeled_data.csv")
@@ -74,6 +74,8 @@ def main_corrected_reflectance():
         state['evaluate'] = True
     engine = GCNMultiLabelMAPEngine(state)
     engine.learning(model, criterion, train_dataset, val_dataset, optimizer)
+
+    print("Total runtime:", str(time.time() - start_time))
 
 if __name__ == '__main__':
     main_corrected_reflectance()
