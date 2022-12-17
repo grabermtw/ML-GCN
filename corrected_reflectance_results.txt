@@ -1,0 +1,437 @@
+$ python3 demo_corrected_reflectance_gcn.py
+/home/grabe/.local/lib/python3.8/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/grabe/.local/lib/python3.8/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=None`.
+  warnings.warn(msg)
+=> no checkpoint found at ''
+lr: [0.01 0.1 ]
+Training:   0%|                                                                                                                | 0/405 [00:00<?, ?it/s]/mnt/c/Users/grabe/OneDrive/Documents/ML-GCN/corrected_reflectance_engine.py:525: UserWarning: torch.nn.utils.clip_grad_norm is now deprecated in favor of torch.nn.utils.clip_grad_norm_.
+  nn.utils.clip_grad_norm(model.parameters(), max_norm=10.0)
+Training: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████| 405/405 [02:53<00:00,  2.34it/s]/mnt/c/Users/grabe/OneDrive/Documents/ML-GCN/corrected_reflectance_util.py:290: RuntimeWarning: invalid value encountered in true_divide
+  CR = np.sum(Nc / Ng) / n_class
+Weather:
+Epoch: [0]      Loss 11.1147    mAP 43.750
+OP: 0.8749      OR: 9645.2857   OF1: 1.7496     CP: 0.8750      CR: nan CF1: nan
+Terrain:
+Epoch: [0]      Loss 11.1147    mAP 15.625
+OP: 0.3124      OR: 9639.8000   OF1: 0.6248     CP: 0.3125      CR: nan CF1: nan
+Test:   0%|                                                                                                                    | 0/270 [00:00<?, ?it/s]/mnt/c/Users/grabe/OneDrive/Documents/ML-GCN/corrected_reflectance_engine.py:511: UserWarning: volatile was removed and now has no effect. Use `with torch.no_grad():` instead.
+  feature_var.volatile = True
+/mnt/c/Users/grabe/OneDrive/Documents/ML-GCN/corrected_reflectance_engine.py:512: UserWarning: volatile was removed and now has no effect. Use `with torch.no_grad():` instead.
+  weather_target_var.volatile = True
+/mnt/c/Users/grabe/OneDrive/Documents/ML-GCN/corrected_reflectance_engine.py:513: UserWarning: volatile was removed and now has no effect. Use `with torch.no_grad():` instead.
+  terrain_target_var.volatile = True
+/mnt/c/Users/grabe/OneDrive/Documents/ML-GCN/corrected_reflectance_engine.py:514: UserWarning: volatile was removed and now has no effect. Use `with torch.no_grad():` instead.
+  inp_var.volatile = True
+Test: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 270/270 [00:24<00:00, 11.25it/s]Weather:
+Test:    Loss 0.0237     mAP 37.500
+OP: 0.7499      OR: 6461.8333   OF1: 1.4997     CP: 0.7500      CR: nan CF1: nan
+OP_3: 0.7708    OR_3: 2491.3333 OF1_3: 1.5412   CP_3: 0.7500    CR_3: nan       CF1_3: nan
+Terrain:
+Test:    Loss 0.0237     mAP 25.000
+OP: 0.5000      OR: 6464.0000   OF1: 0.9999     CP: 0.5000      CR: nan CF1: nan
+OP_3: 0.4584    OR_3: 2222.5000 OF1_3: 0.9167   CP_3: 0.5000    CR_3: nan       CF1_3: nan
+save model checkpoint/corrected_reflectance/checkpoint.pth.tar
+ *** best=37.500,25.000
+lr: [0.01 0.1 ]
+Training: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████| 405/405 [02:46<00:00,  2.44it/s]Weather:
+Epoch: [1]      Loss 0.0000     mAP 34.375
+OP: 0.6875      OR: 9688.0000   OF1: 1.3749     CP: 0.6875      CR: nan CF1: nan
+Terrain:
+Epoch: [1]      Loss 0.0000     mAP 9.375
+OP: 0.1875      OR: 9688.0000   OF1: 0.3750     CP: 0.1875      CR: nan CF1: nan
+Test: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 270/270 [00:24<00:00, 11.07it/s]Weather:
+Test:    Loss 0.0583     mAP 37.500
+OP: 0.7499      OR: 6459.6667   OF1: 1.4996     CP: 0.7500      CR: nan CF1: nan
+OP_3: 0.7708    OR_3: 2491.3333 OF1_3: 1.5412   CP_3: 0.7500    CR_3: nan       CF1_3: nan
+Terrain:
+Test:    Loss 0.0583     mAP 25.000
+OP: 0.5000      OR: 6463.7500   OF1: 0.9999     CP: 0.5000      CR: nan CF1: nan
+OP_3: 0.4584    OR_3: 2222.5000 OF1_3: 0.9167   CP_3: 0.5000    CR_3: nan       CF1_3: nan
+save model checkpoint/corrected_reflectance/checkpoint.pth.tar
+ *** best=37.500,25.000
+lr: [0.01 0.1 ]
+Training: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████| 405/405 [02:46<00:00,  2.44it/s]Weather:
+Epoch: [2]      Loss 0.0000     mAP 34.375
+OP: 0.6875      OR: 9688.0000   OF1: 1.3749     CP: 0.6875      CR: nan CF1: nan
+Terrain:
+Epoch: [2]      Loss 0.0000     mAP 9.375
+OP: 0.1875      OR: 9688.0000   OF1: 0.3750     CP: 0.1875      CR: nan CF1: nan
+Test: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 270/270 [00:23<00:00, 11.40it/s]Weather:
+Test:    Loss 0.0077     mAP 37.500
+OP: 0.7500      OR: 6462.8333   OF1: 1.4998     CP: 0.7500      CR: nan CF1: nan
+OP_3: 0.7708    OR_3: 2491.3333 OF1_3: 1.5412   CP_3: 0.7500    CR_3: nan       CF1_3: nan
+Terrain:
+Test:    Loss 0.0077     mAP 25.000
+OP: 0.5000      OR: 6464.0000   OF1: 0.9999     CP: 0.5000      CR: nan CF1: nan
+OP_3: 0.4584    OR_3: 2222.5000 OF1_3: 0.9167   CP_3: 0.5000    CR_3: nan       CF1_3: nan
+save model checkpoint/corrected_reflectance/checkpoint.pth.tar
+ *** best=37.500,25.000
+lr: [0.01 0.1 ]
+Training: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████| 405/405 [02:45<00:00,  2.45it/s]Weather:
+Epoch: [3]      Loss 0.0000     mAP 31.250
+OP: 0.6250      OR: 9688.0000   OF1: 1.2499     CP: 0.6250      CR: nan CF1: nan
+Terrain:
+Epoch: [3]      Loss 0.0000     mAP 9.375
+OP: 0.1875      OR: 9688.0000   OF1: 0.3750     CP: 0.1875      CR: nan CF1: nan
+Test: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 270/270 [00:23<00:00, 11.56it/s]Weather:
+Test:    Loss 0.0155     mAP 37.500
+OP: 0.7499      OR: 6461.0000   OF1: 1.4997     CP: 0.7500      CR: nan CF1: nan
+OP_3: 0.7708    OR_3: 2491.3333 OF1_3: 1.5412   CP_3: 0.7500    CR_3: nan       CF1_3: nan
+Terrain:
+Test:    Loss 0.0155     mAP 25.000
+OP: 0.5000      OR: 6463.7500   OF1: 0.9999     CP: 0.5000      CR: nan CF1: nan
+OP_3: 0.4584    OR_3: 2222.5000 OF1_3: 0.9167   CP_3: 0.5000    CR_3: nan       CF1_3: nan
+save model checkpoint/corrected_reflectance/checkpoint.pth.tar
+ *** best=37.500,25.000
+lr: [0.01 0.1 ]
+Training: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████| 405/405 [02:40<00:00,  2.52it/s]Weather:
+Epoch: [4]      Loss 0.0000     mAP 34.375
+OP: 0.6875      OR: 9688.0000   OF1: 1.3749     CP: 0.6875      CR: nan CF1: nan
+Terrain:
+Epoch: [4]      Loss 0.0000     mAP 3.125
+OP: 0.0625      OR: 9688.0000   OF1: 0.1250     CP: 0.0625      CR: nan CF1: nan
+Test: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 270/270 [00:24<00:00, 10.85it/s]Weather:
+Test:    Loss 0.0180     mAP 37.500
+OP: 0.7499      OR: 6461.1667   OF1: 1.4997     CP: 0.7500      CR: nan CF1: nan
+OP_3: 0.7708    OR_3: 2491.3333 OF1_3: 1.5412   CP_3: 0.7500    CR_3: nan       CF1_3: nan
+Terrain:
+Test:    Loss 0.0180     mAP 25.000
+OP: 0.5000      OR: 6464.0000   OF1: 0.9999     CP: 0.5000      CR: nan CF1: nan
+OP_3: 0.4584    OR_3: 2222.5000 OF1_3: 0.9167   CP_3: 0.5000    CR_3: nan       CF1_3: nan
+save model checkpoint/corrected_reflectance/checkpoint.pth.tar
+ *** best=37.500,25.000
+lr: [0.01 0.1 ]
+Training: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████| 405/405 [02:46<00:00,  2.43it/s]Weather:
+Epoch: [5]      Loss 0.0000     mAP 34.375
+OP: 0.6875      OR: 9688.0000   OF1: 1.3749     CP: 0.6875      CR: nan CF1: nan
+Terrain:
+Epoch: [5]      Loss 0.0000     mAP 15.625
+OP: 0.3125      OR: 9688.0000   OF1: 0.6250     CP: 0.3125      CR: nan CF1: nan
+Test: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 270/270 [00:23<00:00, 11.49it/s]Weather:
+Test:    Loss 0.0037     mAP 37.500
+OP: 0.7499      OR: 6462.0000   OF1: 1.4997     CP: 0.7500      CR: nan CF1: nan
+OP_3: 0.7708    OR_3: 2491.3333 OF1_3: 1.5412   CP_3: 0.7500    CR_3: nan       CF1_3: nan
+Terrain:
+Test:    Loss 0.0037     mAP 25.000
+OP: 0.5000      OR: 6463.5000   OF1: 0.9999     CP: 0.5000      CR: nan CF1: nan
+OP_3: 0.4584    OR_3: 2222.5000 OF1_3: 0.9167   CP_3: 0.5000    CR_3: nan       CF1_3: nan
+save model checkpoint/corrected_reflectance/checkpoint.pth.tar
+ *** best=37.500,25.000
+lr: [0.01 0.1 ]
+Training: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████| 405/405 [02:28<00:00,  2.73it/s]Weather:
+Epoch: [6]      Loss 0.0000     mAP 31.250
+OP: 0.6250      OR: 9688.0000   OF1: 1.2499     CP: 0.6250      CR: nan CF1: nan
+Terrain:
+Epoch: [6]      Loss 0.0000     mAP 12.500
+OP: 0.2500      OR: 9688.0000   OF1: 0.5000     CP: 0.2500      CR: nan CF1: nan
+Test: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 270/270 [00:26<00:00, 10.06it/s]Weather:
+Test:    Loss 0.0005     mAP 37.500
+OP: 0.7500      OR: 6463.3333   OF1: 1.4998     CP: 0.7500      CR: nan CF1: nan
+OP_3: 0.7708    OR_3: 2491.3333 OF1_3: 1.5412   CP_3: 0.7500    CR_3: nan       CF1_3: nan
+Terrain:
+Test:    Loss 0.0005     mAP 25.000
+OP: 0.5000      OR: 6464.0000   OF1: 0.9999     CP: 0.5000      CR: nan CF1: nan
+OP_3: 0.4584    OR_3: 2222.5000 OF1_3: 0.9167   CP_3: 0.5000    CR_3: nan       CF1_3: nan
+save model checkpoint/corrected_reflectance/checkpoint.pth.tar
+ *** best=37.500,25.000
+lr: [0.01 0.1 ]
+Training: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████| 405/405 [02:42<00:00,  2.49it/s]Weather:
+Epoch: [7]      Loss 0.0000     mAP 46.875
+OP: 0.9375      OR: 9688.0000   OF1: 1.8748     CP: 0.9375      CR: nan CF1: nan
+Terrain:
+Epoch: [7]      Loss 0.0000     mAP 6.250
+OP: 0.1250      OR: 9688.0000   OF1: 0.2500     CP: 0.1250      CR: nan CF1: nan
+Test: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 270/270 [00:23<00:00, 11.29it/s]Weather:
+Test:    Loss 0.0018     mAP 37.500
+OP: 0.7500      OR: 6463.3333   OF1: 1.4998     CP: 0.7500      CR: nan CF1: nan
+OP_3: 0.7708    OR_3: 2491.3333 OF1_3: 1.5412   CP_3: 0.7500    CR_3: nan       CF1_3: nan
+Terrain:
+Test:    Loss 0.0018     mAP 25.000
+OP: 0.5000      OR: 6464.0000   OF1: 0.9999     CP: 0.5000      CR: nan CF1: nan
+OP_3: 0.4584    OR_3: 2222.5000 OF1_3: 0.9167   CP_3: 0.5000    CR_3: nan       CF1_3: nan
+save model checkpoint/corrected_reflectance/checkpoint.pth.tar
+ *** best=37.500,25.000
+lr: [0.01 0.1 ]
+Training: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████| 405/405 [02:48<00:00,  2.40it/s]Weather:
+Epoch: [8]      Loss 0.0000     mAP 34.375
+OP: 0.6875      OR: 9688.0000   OF1: 1.3749     CP: 0.6875      CR: nan CF1: nan
+Terrain:
+Epoch: [8]      Loss 0.0000     mAP 15.625
+OP: 0.3125      OR: 9688.0000   OF1: 0.6250     CP: 0.3125      CR: nan CF1: nan
+Test: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 270/270 [00:24<00:00, 11.17it/s]Weather:
+Test:    Loss 0.0074     mAP 37.500
+OP: 0.7500      OR: 6463.3333   OF1: 1.4998     CP: 0.7500      CR: nan CF1: nan
+OP_3: 0.7708    OR_3: 2491.3333 OF1_3: 1.5412   CP_3: 0.7500    CR_3: nan       CF1_3: nan
+Terrain:
+Test:    Loss 0.0074     mAP 25.000
+OP: 0.5000      OR: 6464.0000   OF1: 0.9999     CP: 0.5000      CR: nan CF1: nan
+OP_3: 0.4584    OR_3: 2222.5000 OF1_3: 0.9167   CP_3: 0.5000    CR_3: nan       CF1_3: nan
+save model checkpoint/corrected_reflectance/checkpoint.pth.tar
+ *** best=37.500,25.000
+lr: [0.01 0.1 ]
+Training: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████| 405/405 [02:51<00:00,  2.35it/s]Weather:
+Epoch: [9]      Loss 0.0000     mAP 31.250
+OP: 0.6250      OR: 9688.0000   OF1: 1.2499     CP: 0.6250      CR: nan CF1: nan
+Terrain:
+Epoch: [9]      Loss 0.0000     mAP 12.500
+OP: 0.2500      OR: 9688.0000   OF1: 0.5000     CP: 0.2500      CR: nan CF1: nan
+Test: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 270/270 [00:23<00:00, 11.44it/s]Weather:
+Test:    Loss 0.0011     mAP 37.500
+OP: 0.7500      OR: 6463.1667   OF1: 1.4998     CP: 0.7500      CR: nan CF1: nan
+OP_3: 0.7708    OR_3: 2491.3333 OF1_3: 1.5412   CP_3: 0.7500    CR_3: nan       CF1_3: nan
+Terrain:
+Test:    Loss 0.0011     mAP 25.000
+OP: 0.5000      OR: 6464.0000   OF1: 0.9999     CP: 0.5000      CR: nan CF1: nan
+OP_3: 0.4584    OR_3: 2222.5000 OF1_3: 0.9167   CP_3: 0.5000    CR_3: nan       CF1_3: nan
+save model checkpoint/corrected_reflectance/checkpoint.pth.tar
+ *** best=37.500,25.000
+lr: [0.01 0.1 ]
+Training: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████| 405/405 [02:48<00:00,  2.40it/s]Weather:
+Epoch: [10]     Loss 0.0000     mAP 34.375
+OP: 0.6875      OR: 9688.0000   OF1: 1.3749     CP: 0.6875      CR: nan CF1: nan
+Terrain:
+Epoch: [10]     Loss 0.0000     mAP 6.250
+OP: 0.1250      OR: 9688.0000   OF1: 0.2500     CP: 0.1250      CR: nan CF1: nan
+Test: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 270/270 [00:23<00:00, 11.36it/s]Weather:
+Test:    Loss 0.0053     mAP 37.500
+OP: 0.7500      OR: 6463.0000   OF1: 1.4998     CP: 0.7500      CR: nan CF1: nan
+OP_3: 0.7708    OR_3: 2491.3333 OF1_3: 1.5412   CP_3: 0.7500    CR_3: nan       CF1_3: nan
+Terrain:
+Test:    Loss 0.0053     mAP 25.000
+OP: 0.5000      OR: 6464.0000   OF1: 0.9999     CP: 0.5000      CR: nan CF1: nan
+OP_3: 0.4584    OR_3: 2222.5000 OF1_3: 0.9167   CP_3: 0.5000    CR_3: nan       CF1_3: nan
+save model checkpoint/corrected_reflectance/checkpoint.pth.tar
+ *** best=37.500,25.000
+lr: [0.01 0.1 ]
+Training: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████| 405/405 [02:39<00:00,  2.55it/s]Weather:
+Epoch: [11]     Loss 0.0000     mAP 25.000
+OP: 0.5000      OR: 9688.0000   OF1: 0.9999     CP: 0.5000      CR: nan CF1: nan
+Terrain:
+Epoch: [11]     Loss 0.0000     mAP 21.875
+OP: 0.4375      OR: 9688.0000   OF1: 0.8750     CP: 0.4375      CR: nan CF1: nan
+Test: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 270/270 [00:22<00:00, 12.16it/s]Weather:
+Test:    Loss 0.0007     mAP 37.500
+OP: 0.7500      OR: 6462.6667   OF1: 1.4997     CP: 0.7500      CR: nan CF1: nan
+OP_3: 0.7708    OR_3: 2491.3333 OF1_3: 1.5412   CP_3: 0.7500    CR_3: nan       CF1_3: nan
+Terrain:
+Test:    Loss 0.0007     mAP 25.000
+OP: 0.5000      OR: 6464.0000   OF1: 0.9999     CP: 0.5000      CR: nan CF1: nan
+OP_3: 0.4584    OR_3: 2222.5000 OF1_3: 0.9167   CP_3: 0.5000    CR_3: nan       CF1_3: nan
+save model checkpoint/corrected_reflectance/checkpoint.pth.tar
+ *** best=37.500,25.000
+lr: [0.01 0.1 ]
+Training: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████| 405/405 [02:27<00:00,  2.75it/s]Weather:
+Epoch: [12]     Loss 0.0000     mAP 40.625
+OP: 0.8125      OR: 9688.0000   OF1: 1.6249     CP: 0.8125      CR: nan CF1: nan
+Terrain:
+Epoch: [12]     Loss 0.0000     mAP 25.000
+OP: 0.5000      OR: 9688.0000   OF1: 0.9999     CP: 0.5000      CR: nan CF1: nan
+Test: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 270/270 [00:25<00:00, 10.55it/s]Weather:
+Test:    Loss 0.0002     mAP 37.500
+OP: 0.7500      OR: 6463.8333   OF1: 1.4998     CP: 0.7500      CR: nan CF1: nan
+OP_3: 0.7708    OR_3: 2491.3333 OF1_3: 1.5412   CP_3: 0.7500    CR_3: nan       CF1_3: nan
+Terrain:
+Test:    Loss 0.0002     mAP 25.000
+OP: 0.5000      OR: 6464.0000   OF1: 0.9999     CP: 0.5000      CR: nan CF1: nan
+OP_3: 0.4584    OR_3: 2222.5000 OF1_3: 0.9167   CP_3: 0.5000    CR_3: nan       CF1_3: nan
+save model checkpoint/corrected_reflectance/checkpoint.pth.tar
+ *** best=37.500,25.000
+lr: [0.01 0.1 ]
+Training: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████| 405/405 [02:39<00:00,  2.55it/s]Weather:
+Epoch: [13]     Loss 0.0000     mAP 34.375
+OP: 0.6875      OR: 9688.0000   OF1: 1.3749     CP: 0.6875      CR: nan CF1: nan
+Terrain:
+Epoch: [13]     Loss 0.0000     mAP 21.875
+OP: 0.4375      OR: 9688.0000   OF1: 0.8750     CP: 0.4375      CR: nan CF1: nan
+Test: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 270/270 [00:23<00:00, 11.30it/s]Weather:
+Test:    Loss 0.0000     mAP 37.500
+OP: 0.7500      OR: 6464.0000   OF1: 1.4998     CP: 0.7500      CR: nan CF1: nan
+OP_3: 0.7708    OR_3: 2491.3333 OF1_3: 1.5412   CP_3: 0.7500    CR_3: nan       CF1_3: nan
+Terrain:
+Test:    Loss 0.0000     mAP 25.000
+OP: 0.5000      OR: 6464.0000   OF1: 0.9999     CP: 0.5000      CR: nan CF1: nan
+OP_3: 0.4584    OR_3: 2222.5000 OF1_3: 0.9167   CP_3: 0.5000    CR_3: nan       CF1_3: nan
+save model checkpoint/corrected_reflectance/checkpoint.pth.tar
+ *** best=37.500,25.000
+lr: [0.01 0.1 ]
+Training: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████| 405/405 [02:52<00:00,  2.35it/s]Weather:
+Epoch: [14]     Loss 0.0000     mAP 28.125
+OP: 0.5625      OR: 9688.0000   OF1: 1.1249     CP: 0.5625      CR: nan CF1: nan
+Terrain:
+Epoch: [14]     Loss 0.0000     mAP 9.375
+OP: 0.1875      OR: 9688.0000   OF1: 0.3750     CP: 0.1875      CR: nan CF1: nan
+Test: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 270/270 [00:23<00:00, 11.26it/s]Weather:
+Test:    Loss 0.0000     mAP 37.500
+OP: 0.7500      OR: 6464.0000   OF1: 1.4998     CP: 0.7500      CR: nan CF1: nan
+OP_3: 0.7708    OR_3: 2491.3333 OF1_3: 1.5412   CP_3: 0.7500    CR_3: nan       CF1_3: nan
+Terrain:
+Test:    Loss 0.0000     mAP 25.000
+OP: 0.5000      OR: 6464.0000   OF1: 0.9999     CP: 0.5000      CR: nan CF1: nan
+OP_3: 0.4584    OR_3: 2222.5000 OF1_3: 0.9167   CP_3: 0.5000    CR_3: nan       CF1_3: nan
+save model checkpoint/corrected_reflectance/checkpoint.pth.tar
+ *** best=37.500,25.000
+lr: [0.01 0.1 ]
+Training: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████| 405/405 [02:43<00:00,  2.48it/s]Weather:
+Epoch: [15]     Loss 0.0000     mAP 31.250
+OP: 0.6250      OR: 9688.0000   OF1: 1.2499     CP: 0.6250      CR: nan CF1: nan
+Terrain:
+Epoch: [15]     Loss 0.0000     mAP 12.500
+OP: 0.2500      OR: 9688.0000   OF1: 0.5000     CP: 0.2500      CR: nan CF1: nan
+Test: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 270/270 [00:23<00:00, 11.26it/s]Weather:
+Test:    Loss 0.0000     mAP 37.500
+OP: 0.7500      OR: 6464.0000   OF1: 1.4998     CP: 0.7500      CR: nan CF1: nan
+OP_3: 0.7708    OR_3: 2491.3333 OF1_3: 1.5412   CP_3: 0.7500    CR_3: nan       CF1_3: nan
+Terrain:
+Test:    Loss 0.0000     mAP 25.000
+OP: 0.5000      OR: 6464.0000   OF1: 0.9999     CP: 0.5000      CR: nan CF1: nan
+OP_3: 0.4584    OR_3: 2222.5000 OF1_3: 0.9167   CP_3: 0.5000    CR_3: nan       CF1_3: nan
+save model checkpoint/corrected_reflectance/checkpoint.pth.tar
+ *** best=37.500,25.000
+lr: [0.01 0.1 ]
+Training: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████| 405/405 [02:44<00:00,  2.47it/s]Weather:
+Epoch: [16]     Loss 0.0000     mAP 31.250
+OP: 0.6250      OR: 9688.0000   OF1: 1.2499     CP: 0.6250      CR: nan CF1: nan
+Terrain:
+Epoch: [16]     Loss 0.0000     mAP 21.875
+OP: 0.4375      OR: 9688.0000   OF1: 0.8750     CP: 0.4375      CR: nan CF1: nan
+Test: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 270/270 [00:23<00:00, 11.44it/s]Weather:
+Test:    Loss 0.0000     mAP 37.500
+OP: 0.7500      OR: 6464.0000   OF1: 1.4998     CP: 0.7500      CR: nan CF1: nan
+OP_3: 0.7708    OR_3: 2491.3333 OF1_3: 1.5412   CP_3: 0.7500    CR_3: nan       CF1_3: nan
+Terrain:
+Test:    Loss 0.0000     mAP 25.000
+OP: 0.5000      OR: 6464.0000   OF1: 0.9999     CP: 0.5000      CR: nan CF1: nan
+OP_3: 0.4584    OR_3: 2222.5000 OF1_3: 0.9167   CP_3: 0.5000    CR_3: nan       CF1_3: nan
+save model checkpoint/corrected_reflectance/checkpoint.pth.tar
+ *** best=37.500,25.000
+lr: [0.01 0.1 ]
+Training: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████| 405/405 [02:38<00:00,  2.56it/s]Weather:
+Epoch: [17]     Loss 0.0000     mAP 34.375
+OP: 0.6875      OR: 9688.0000   OF1: 1.3749     CP: 0.6875      CR: nan CF1: nan
+Terrain:
+Epoch: [17]     Loss 0.0000     mAP 12.500
+OP: 0.2500      OR: 9688.0000   OF1: 0.5000     CP: 0.2500      CR: nan CF1: nan
+Test: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 270/270 [00:22<00:00, 11.86it/s]Weather:
+Test:    Loss 0.0000     mAP 37.500
+OP: 0.7500      OR: 6464.0000   OF1: 1.4998     CP: 0.7500      CR: nan CF1: nan
+OP_3: 0.7708    OR_3: 2491.3333 OF1_3: 1.5412   CP_3: 0.7500    CR_3: nan       CF1_3: nan
+Terrain:
+Test:    Loss 0.0000     mAP 25.000
+Training: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████| 405/405 [02:38<00:00,  2.56it/s]Weather:       _3: nan
+Epoch: [18]     Loss 0.0000     mAP 37.500
+OP: 0.7500      OR: 9688.0000   OF1: 1.4999     CP: 0.7500      CR: nan CF1: nan
+CF1_3: nan
+Terrain:
+Test:    Loss 0.0000     mAP 25.000
+OP: 0.5000      OR: 6464.0000   OF1: 0.9999     CP: 0.5000      CR: nan CF1: nan█████████████████████████████████████| 270/270 [00:23<00:00, 11.32it/s]
+
+OP: 0.5000      OR: 6464.0000   OF1: 0.9999     CP: 0.5000      CR: nan CF1: nan
+OP_3: 0.4584    OR_3: 2222.5000 OF1_3: 0.9167   CP_3: 0.5000    CR_3: nan       CF1_3: nan
+save model checkpoint/corrected_reflectance/checkpoint.pth.tar
+ *** best=37.500,25.000
+lr: [0.01 0.1 ]
+Training:  36%|████████████████████████████████████▎                               Training:  36%|████████████████████████████████████▌                               Training:  36%|████████████████████████████████████▊                               Training:  36%|█████████████████████████████████████ Training: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████| 405/405 [02:48<00:00,  2.40it/s]Weather:
+Epoch: [19]     Loss 0.0000     mAP 25.000
+OP: 0.5000      OR: 9688.0000   OF1: 0.9999     CP: 0.5000      CR: nan CF1: nan
+Terrain:
+Epoch: [19]     Loss 0.0000     mAP 25.000
+OP: 0.5000      OR: 9688.0000   OF1: 0.9999     CP: 0.5000      CR: nan CF1: nan
+Test:  22%|███████████████████████▍                                             Test:  23%|████████████████████████▏                                            Test:  23%|████████████████████████▉
+Test: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 270/270 [00:24<00:00, 11.22it/s]5/270 [00:05<00:20, 10.02it/s]
+Weather:
+Test:    Loss 0.0000     mAP 37.500
+OP: 0.7500      OR: 6464.0000   OF1: 1.4998     CP: 0.7500      CR: nan CF1: nan
+OP_3: 0.7708    OR_3: 2491.3333 OF1_3: 1.5412   CP_3: 0.7500    CR_3: nan       CF1_3: nan
+Terrain:
+Test:    Loss 0.0000     mAP 25.000
+OP: 0.5000      OR: 6464.0000   OF1: 0.9999     CP: 0.5000      CR: nan CF1: nan
+OP_3: 0.4584    OR_3: 2222.5000 OF1_3: 0.9167   CP_3: 0.5000    CR_3: nan       CF1_3: nan
+save model checkpoint/corrected_reflectance/checkpoint.pth.tar
+ *** best=37.500,25.000
+lr: [0.01 0.1 ]
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 405/405 [02:43<00:00,  2.47it/s]Weather:
+Epoch: [20]     Loss 0.0000     mAP 37.500
+OP: 0.7500      OR: 9688.0000   OF1: 1.4999     CP: 0.7500      CR: nan CF1: nan
+Terrain:
+Epoch: [20]     Loss 0.0000     mAP 18.750
+OP: 0.3750      OR: 9688.0000   OF1: 0.7500     CP: 0.3750      CR: nan CF1: nan
+Test: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 270/270 [00:23<00:00, 11.46it/s]Weather:
+Test:    Loss 0.0000     mAP 37.500
+OP: 0.7500      OR: 6464.0000   OF1: 1.4998     CP: 0.7500      CR: nan CF1: nan
+OP_3: 0.7708    OR_3: 2491.3333 OF1_3: 1.5412   CP_3: 0.7500    CR_3: nan       CF1_3: nan
+Terrain:
+Test:    Loss 0.0000     mAP 25.000
+OP: 0.5000      OR: 6464.0000   OF1: 0.9999     CP: 0.5000      CR: nan CF1: nan
+OP_3: 0.4584    OR_3: 2222.5000 OF1_3: 0.9167   CP_3: 0.5000    CR_3: nan       CF1_3: nan
+save model checkpoint/corrected_reflectance/checkpoint.pth.tar
+ *** best=37.500,25.000
+lr: [0.01 0.1 ]
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 405/405 [02:46<00:00,  2.43it/s]Weather:
+Epoch: [21]     Loss 0.0000     mAP 34.375
+OP: 0.6875      OR: 9688.0000   OF1: 1.3749     CP: 0.6875      CR: nan CF1: nan
+Terrain:
+Epoch: [21]     Loss 0.0000     mAP 12.500
+OP: 0.2500      OR: 9688.0000   OF1: 0.5000     CP: 0.2500      CR: nan CF1: nan
+Test: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 270/270 [00:24<00:00, 11.25it/s]Weather:
+Test:    Loss 0.0000     mAP 37.500
+OP: 0.7500      OR: 6464.0000   OF1: 1.4998     CP: 0.7500      CR: nan CF1: nan
+OP_3: 0.7708    OR_3: 2491.3333 OF1_3: 1.5412   CP_3: 0.7500    CR_3: nan       CF1_3: nan
+Terrain:
+Test:    Loss 0.0000     mAP 25.000
+OP: 0.5000      OR: 6464.0000   OF1: 0.9999     CP: 0.5000      CR: nan CF1: nan
+OP_3: 0.4584    OR_3: 2222.5000 OF1_3: 0.9167   CP_3: 0.5000    CR_3: nan       CF1_3: nan
+save model checkpoint/corrected_reflectance/checkpoint.pth.tar
+ *** best=37.500,25.000
+lr: [0.01 0.1 ]
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 405/405 [02:44<00:00,  2.46it/s]Weather:
+Epoch: [22]     Loss 0.0000     mAP 40.625
+OP: 0.8125      OR: 9688.0000   OF1: 1.6249     CP: 0.8125      CR: nan CF1: nan
+Terrain:
+Epoch: [22]     Loss 0.0000     mAP 18.750
+OP: 0.3750      OR: 9688.0000   OF1: 0.7500     CP: 0.3750      CR: nan CF1: nan
+Test: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 270/270 [00:23<00:00, 11.47it/s]Weather:
+Test:    Loss 0.0000     mAP 37.500
+OP: 0.7500      OR: 6464.0000   OF1: 1.4998     CP: 0.7500      CR: nan CF1: nan
+OP_3: 0.7708    OR_3: 2491.3333 OF1_3: 1.5412   CP_3: 0.7500    CR_3: nan       CF1_3: nan
+Terrain:
+Test:    Loss 0.0000     mAP 25.000
+OP: 0.5000      OR: 6464.0000   OF1: 0.9999     CP: 0.5000      CR: nan CF1: nan
+OP_3: 0.4584    OR_3: 2222.5000 OF1_3: 0.9167   CP_3: 0.5000    CR_3: nan       CF1_3: nan
+save model checkpoint/corrected_reflectance/checkpoint.pth.tar
+ *** best=37.500,25.000
+lr: [0.01 0.1 ]
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 405/405 [02:41<00:00,  2.51it/s]Weather:
+Epoch: [23]     Loss 0.0000     mAP 37.500
+OP: 0.7500      OR: 9688.0000   OF1: 1.4999     CP: 0.7500      CR: nan CF1: nan
+Terrain:
+Epoch: [23]     Loss 0.0000     mAP 21.875
+OP: 0.4375      OR: 9688.0000   OF1: 0.8750     CP: 0.4375      CR: nan CF1: nan
+Test: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 270/270 [00:23<00:00, 11.26it/s]Weather:
+Test:    Loss 0.0000     mAP 37.500
+OP: 0.7500      OR: 6464.0000   OF1: 1.4998     CP: 0.7500      CR: nan CF1: nan
+OP_3: 0.7708    OR_3: 2491.3333 OF1_3: 1.5412   CP_3: 0.7500    CR_3: nan       CF1_3: nan
+Terrain:
+Test:    Loss 0.0000     mAP 25.000
+OP: 0.5000      OR: 6464.0000   OF1: 0.9999     CP: 0.5000      CR: nan CF1: nan
+OP_3: 0.4584    OR_3: 2222.5000 OF1_3: 0.9167   CP_3: 0.5000    CR_3: nan       CF1_3: nan
+save model checkpoint/corrected_reflectance/checkpoint.pth.tar
+ *** best=37.500,25.000
+lr: [0.01 0.1 ]
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 405/405 [02:47<00:00,  2.42it/s]Weather:
+Epoch: [24]     Loss 0.0000     mAP 34.375
+OP: 0.6875      OR: 9688.0000   OF1: 1.3749     CP: 0.6875      CR: nan CF1: nan
+Terrain:
+Epoch: [24]     Loss 0.0000     mAP 6.250
+OP: 0.1250      OR: 9688.0000   OF1: 0.2500     CP: 0.1250      CR: nan CF1: nan
+Test: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 270/270 [00:28<00:00,  9.62it/s]Weather:
+Test:    Loss 0.0000     mAP 37.500
+OP: 0.7500      OR: 6464.0000   OF1: 1.4998     CP: 0.7500      CR: nan CF1: nan
+OP_3: 0.7708    OR_3: 2491.3333 OF1_3: 1.5412   CP_3: 0.7500    CR_3: nan       CF1_3: nan
+Terrain:
+Test:    Loss 0.0000     mAP 25.000
+OP: 0.5000      OR: 6464.0000   OF1: 0.9999     CP: 0.5000      CR: nan CF1: nan
+OP_3: 0.4584    OR_3: 2222.5000 OF1_3: 0.9167   CP_3: 0.5000    CR_3: nan       CF1_3: nan
+save model checkpoint/corrected_reflectance/checkpoint.pth.tar
+ *** best=37.500,25.000
+Total runtime: 4741.93003153801
